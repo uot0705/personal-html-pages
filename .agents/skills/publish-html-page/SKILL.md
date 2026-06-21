@@ -24,18 +24,12 @@ Follow this workflow exactly.
      - `AAA.html` -> `AAA`
 7. Stop without changing anything if a directory with the same slug already exists.
 8. Create `slug/index.html` from the source HTML.
-9. Check whether the HTML already contains a link back to the top page.
-10. If there is no top-page link, insert this immediately after `<body>`:
-
-```html
-<a href="../">← 一覧に戻る</a>
-```
-
-11. Delete the original root-level HTML file after the new `slug/index.html` is created.
-12. Read metadata from the HTML.
+9. Do not add a link back to the top page unless the user explicitly asks for it.
+10. Delete the original root-level HTML file after the new `slug/index.html` is created.
+11. Read metadata from the HTML.
    - Use the `<title>` text for `title` when present. Otherwise use the slug.
    - Use the `meta name="description"` content for `description` when present. Otherwise use an empty string.
-13. Add this object to `pages.json`:
+12. Add this object to `pages.json`:
 
 ```json
 {
@@ -46,10 +40,10 @@ Follow this workflow exactly.
 }
 ```
 
-14. Do not add a duplicate entry when `pages.json` already contains the same `path`.
-15. Run `git status` after the file changes.
-16. If the result looks correct, commit and push.
-17. After push, display the expected GitHub Pages URL.
+13. Do not add a duplicate entry when `pages.json` already contains the same `path`.
+14. Run `git status` after the file changes.
+15. If the result looks correct, commit and push.
+16. After push, display the expected GitHub Pages URL.
 
 ## Required Checks
 
