@@ -351,13 +351,19 @@
   </div>
 
   <script>
-    const PASSWORD = "uotsu-pages";
+    const PASSWORD_HASH = [
+      "bfa2728908204eec",
+      "f48d555139f4dbef",
+      "a1bc67fc6cb1cbdc",
+      "be099a94a2fd05f4"
+    ].join("");
     const AUTH_KEY = "personal-html-pages-authenticated";
 
     const authPanel = document.getElementById("auth-panel");
     const authForm = document.getElementById("auth-form");
     const passwordInput = document.getElementById("password");
     const authError = document.getElementById("auth-error");
+    const submitButton = authForm.querySelector('button[type="submit"]');
     const pagesSection = document.getElementById("pages-section");
     const pagesGrid = document.getElementById("pages-grid");
     const pagesStatus = document.getElementById("pages-status");
@@ -384,12 +390,18 @@
       }
     }
 
+    async function sha256Hex(value) {
+      const data = new TextEncoder().encode(value);
+      const digest = await crypto.subtle.digest("SHA-256", data);
+      return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+    }
+
     function renderEmptyState() {
       pagesGrid.innerHTML = `
         <article class="empty-state">
           <div class="empty-emoji">🗂️</div>
           <strong>まだページがありません</strong>
-          <p>ルートに HTML を置いて `publish-html-page` Skill で公開用のページに変換すると、ここに表示されます。</p>
+          <p>ルートに HTML を置いて <code>publish-html-page</code> Skill で公開用のページに変換すると、ここに表示されます。</p>
         </article>
       `;
     }
@@ -444,7 +456,7 @@
           <article class="empty-state">
             <div class="empty-emoji">⚠️</div>
             <strong>ページを読み込めませんでした</strong>
-            <p>\`pages.json\` を読み込めませんでした。JSON の形式と公開状態を確認してください。</p>
+            <p><code>pages.json</code> を読み込めませんでした。JSON の形式と公開状態を確認してください。</p>
           </article>
         `;
         pagesStatus.textContent = "ページを読み込めませんでした。";
@@ -457,17 +469,25 @@
       loadPages();
     }
 
-    authForm.addEventListener("submit", (event) => {
+    authForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       authError.textContent = "";
+      submitButton.disabled = true;
 
-      if (passwordInput.value === PASSWORD) {
-        persistAuthentication();
-        return;
+      try {
+        const candidateHash = await sha256Hex(passwordInput.value);
+        if (candidateHash === PASSWORD_HASH) {
+          persistAuthentication();
+          return;
+        }
+
+        authError.textContent = "パスワードが違います。";
+        passwordInput.select();
+      } catch (error) {
+        authError.textContent = "このブラウザでは認証チェックを実行できません。";
+      } finally {
+        submitButton.disabled = false;
       }
-
-      authError.textContent = "パスワードが違います。";
-      passwordInput.select();
     });
 
     logoutButton.addEventListener("click", () => {
