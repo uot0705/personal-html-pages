@@ -372,7 +372,7 @@
       pagesGrid.innerHTML = sortedPages.map((page) => {
         const title = page && page.title ? page.title : "Untitled";
         const description = page && page.description ? page.description : "";
-        const path = page && page.path ? page.path : "./";
+        const path = page && page.path ? page.path.replace(/^\.\//, "../") : "../";
 
         return `
           <article class="page-card">
@@ -388,7 +388,7 @@
 
     async function loadPages() {
       try {
-        const response = await fetch("./pages.json", { cache: "no-store" });
+        const response = await fetch("../pages.json", { cache: "no-store" });
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
         }

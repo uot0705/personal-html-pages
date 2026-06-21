@@ -1,7 +1,9 @@
 # AGENTS.md
 
 - このリポジトリは個人用 HTML ページ置き場です。
+- 一覧ページは `index/index.html` です。
 - 新規ページは `slug/index.html` 形式にします。
+- ルート `/` は公開一覧に使わず、エラー表示のままにします。
 - ルートに HTML が置かれたら `publish-html-page` の手順で変換します。
 - `pages.json` を必ず更新します。
 - ページはスマホで見やすくします。

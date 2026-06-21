@@ -1,15 +1,15 @@
 # personal-html-pages
 
-個人用の静的 HTML ページを GitHub Pages で公開するためのリポジトリです。トップの `index.html` は簡易パスワード付きの一覧ページで、公開ページ情報は `pages.json` から読み込みます。
+個人用の静的 HTML ページを GitHub Pages で公開するためのリポジトリです。一覧ページは `index/index.html` に置き、公開ページ情報は `pages.json` から読み込みます。
 
 ## URL structure
 
-- トップ: `https://<GitHubユーザー名>.github.io/personal-html-pages/`
+- 一覧: `https://<GitHubユーザー名>.github.io/personal-html-pages/index/`
 - 各ページ: `https://<GitHubユーザー名>.github.io/personal-html-pages/<slug>/`
 
 ## ページ追加方法
 
-1. ルート直下に `.html` を置きます。`index.html` は対象外です。
+1. ルート直下に `.html` を置きます。一覧ページは `index/index.html` です。
 2. `publish-html-page` Skill を使って `slug/index.html` へ変換します。
 3. Skill が `pages.json` を更新し、元のルート HTML を削除します。
 
