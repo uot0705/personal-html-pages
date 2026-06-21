@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -324,14 +324,14 @@
 
     <div class="layout">
       <section class="panel" id="auth-panel">
-        <h2>Simple Password</h2>
+        <h2>簡易パスワード</h2>
         <p>一覧を見るには簡易パスワードを入力してください。認証ではなく、軽い目隠しです。</p>
         <form class="auth-form" id="auth-form">
           <div class="auth-row">
             <label for="password">Password</label>
-            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter password">
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="パスワードを入力">
           </div>
-          <button type="submit">Open Pages</button>
+          <button type="submit">一覧を開く</button>
           <div class="error" id="auth-error" aria-live="polite"></div>
         </form>
         <p class="helper">認証状態はこのブラウザの `localStorage` に保存されます。</p>
@@ -340,12 +340,12 @@
 
       <section class="pages-section" id="pages-section">
         <div class="pages-header">
-          <h2>Pages</h2>
+          <h2>ページ一覧</h2>
           <p>`pages.json` を読み込んで公開ページを一覧表示します。</p>
         </div>
         <div class="status" id="pages-status" aria-live="polite"></div>
         <div class="pages-grid" id="pages-grid"></div>
-        <button class="secondary-button" id="logout-button" type="button">Forget This Browser</button>
+        <button class="secondary-button" id="logout-button" type="button">このブラウザの認証を解除</button>
       </section>
     </div>
   </div>
@@ -388,7 +388,7 @@
       pagesGrid.innerHTML = `
         <article class="empty-state">
           <div class="empty-emoji">🗂️</div>
-          <strong>No pages yet</strong>
+          <strong>まだページがありません</strong>
           <p>ルートに HTML を置いて `publish-html-page` Skill で公開用のページに変換すると、ここに表示されます。</p>
         </article>
       `;
@@ -421,14 +421,14 @@
               <h3>${escapeHtml(title)}</h3>
               <p>${escapeHtml(description)}</p>
             </div>
-            <a class="open-link" href="${escapeHtml(path)}">Open Page</a>
+            <a class="open-link" href="${escapeHtml(path)}">ページを開く</a>
           </article>
         `;
       }).join("");
     }
 
     async function loadPages() {
-      pagesStatus.textContent = "Loading pages...";
+      pagesStatus.textContent = "ページを読み込み中...";
 
       try {
         const response = await fetch("./pages.json", { cache: "no-store" });
@@ -438,16 +438,16 @@
 
         const pages = await response.json();
         renderPages(pages);
-        pagesStatus.textContent = `${Array.isArray(pages) ? pages.length : 0} page${Array.isArray(pages) && pages.length === 1 ? "" : "s"} available`;
+        pagesStatus.textContent = `${Array.isArray(pages) ? pages.length : 0}件のページを表示できます`;
       } catch (error) {
         pagesGrid.innerHTML = `
           <article class="empty-state">
             <div class="empty-emoji">⚠️</div>
-            <strong>Failed to load pages</strong>
+            <strong>ページを読み込めませんでした</strong>
             <p>\`pages.json\` を読み込めませんでした。JSON の形式と公開状態を確認してください。</p>
           </article>
         `;
-        pagesStatus.textContent = "Could not load pages.";
+        pagesStatus.textContent = "ページを読み込めませんでした。";
       }
     }
 
@@ -466,7 +466,7 @@
         return;
       }
 
-      authError.textContent = "Password is incorrect.";
+      authError.textContent = "パスワードが違います。";
       passwordInput.select();
     });
 
