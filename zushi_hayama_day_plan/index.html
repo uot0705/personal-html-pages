@@ -29,13 +29,40 @@
         <p class="eyebrow">ZUSHI &amp; HAYAMA · DAY TRIP</p>
         <h1>海と涼をつなぐ<br>逗子・葉山の一日</h1>
         <p class="hero-lead">屋外は短く、休憩はしっかり。場所名をタップすると、地図と店舗情報を確認できます。</p>
-        <div class="hero-meta" aria-label="旅程概要">
-          <span>10:30 出発</span>
-          <span>21:00までに帰宅</span>
-          <span>屋外は最長30分</span>
-        </div>
       </div>
     </header>
+
+    <section class="place-index-section" id="place-index" aria-labelledby="place-index-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PLACE INDEX</p>
+          <h2 id="place-index-title">立ち寄り先</h2>
+        </div>
+        <p>場所を選ぶと、予定表の該当カードへ移動します。</p>
+      </div>
+      <div class="place-index-wrap">
+        <table class="place-index-table">
+          <thead>
+            <tr>
+              <th scope="col">順番</th>
+              <th scope="col">到着</th>
+              <th scope="col">お店・施設</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>01</td><td>12:22</td><td><a href="#spot-maruwa">まるわ食堂</a></td></tr>
+            <tr><td>02</td><td>13:47</td><td><a href="#spot-morito-shrine">森戸神社</a></td></tr>
+            <tr><td>03</td><td>14:15</td><td><a href="#spot-soso">楚々 葉山</a></td></tr>
+            <tr><td>04</td><td>15:20</td><td><a href="#spot-morito-beach">森戸海岸</a></td></tr>
+            <tr><td>05</td><td>15:45</td><td><a href="#spot-motomachi-union">もとまちユニオン葉山店</a></td></tr>
+            <tr><td>06</td><td>16:20</td><td><a href="#spot-zushi-marina">逗子マリーナ</a></td></tr>
+            <tr><td>07</td><td>16:45</td><td><a href="#spot-ron-herman">ロンハーマン逗子マリーナ店</a></td></tr>
+            <tr><td>08</td><td>17:10</td><td><a href="#spot-kotsubo">小坪漁港</a></td></tr>
+            <tr><td>09</td><td>18:05</td><td><a href="#spot-cremahop">CREMAHOP 逗子店</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
     <section class="schedule-section" aria-labelledby="schedule-title">
       <div class="section-heading">
@@ -47,7 +74,7 @@
       </div>
 
       <div class="table-wrap">
-        <table>
+        <table class="schedule-table">
           <thead>
             <tr>
               <th scope="col">時間</th>
@@ -58,145 +85,139 @@
           </thead>
           <tbody>
             <tr>
-              <td data-label="時間"><strong>10:30〜11:55</strong></td>
+              <td data-label="時間"><strong>10:30〜11:55 <span class="duration">（85分）</span></strong></td>
               <td data-label="区分"><span class="type type-move">🚃 移動</span></td>
               <td data-label="場所・移動"><a href="./details/sugamo-station/">巣鴨駅</a><span class="arrow">→</span><a href="./details/zushi-station/">逗子駅</a></td>
               <td data-label="内容">JRで移動。乗換を含めて約1時間25分</td>
             </tr>
             <tr>
-              <td data-label="時間">11:55〜12:05</td>
-              <td data-label="区分"><span class="type type-walk">🚶 待機</span></td>
-              <td data-label="場所・移動"><a href="./details/zushi-station-bus/">逗子駅東口バス乗り場</a></td>
-              <td data-label="内容">トイレを済ませ、飲み物を購入してバス待ち</td>
+              <td data-label="時間">11:55〜12:05 <span class="duration">（10分）</span></td>
+              <td data-label="区分"><span class="type type-walk">🚶 準備</span></td>
+              <td data-label="場所・移動"><a href="./details/zushi-station/">逗子駅</a></td>
+              <td data-label="内容">トイレを済ませ、飲み物を購入してタクシーを手配</td>
             </tr>
             <tr>
-              <td data-label="時間"><strong>12:05〜12:11ごろ</strong></td>
-              <td data-label="区分"><span class="type type-move">🚌 移動</span></td>
-              <td data-label="場所・移動"><a href="./details/zushi-station-bus/">逗子駅東口</a><span class="arrow">→</span><a href="./details/shinjuku-bus-stop/">新宿バス停</a></td>
-              <td data-label="内容">徒歩20分を避けてバスを利用</td>
+              <td data-label="時間"><strong>12:05〜12:22 <span class="duration">（17分）</span></strong></td>
+              <td data-label="区分"><span class="type type-move">🚕 移動</span></td>
+              <td data-label="場所・移動"><a href="./details/zushi-station/">逗子駅</a><span class="arrow">→</span><a href="./details/maruwa-shokudo/">まるわ食堂</a></td>
+              <td data-label="内容">暑さを避けてタクシーで移動</td>
             </tr>
-            <tr>
-              <td data-label="時間">12:11〜12:22</td>
-              <td data-label="区分"><span class="type type-walk">🚶 移動</span></td>
-              <td data-label="場所・移動"><a href="./details/shinjuku-bus-stop/">新宿バス停</a><span class="arrow">→</span><a href="./details/maruwa-shokudo/">まるわ食堂</a></td>
-              <td data-label="内容">約11分。ここまでの屋外は短時間</td>
-            </tr>
-            <tr class="highlight-row">
-              <td data-label="時間"><strong>12:22〜13:27</strong></td>
+            <tr class="highlight-row spot-row" id="spot-maruwa">
+              <td data-label="時間"><strong>12:22〜13:27 <span class="duration">（65分）</span></strong></td>
               <td data-label="区分"><span class="type type-food">🍴 滞在</span></td>
               <td data-label="場所・移動"><a href="./details/maruwa-shokudo/">まるわ食堂</a></td>
               <td data-label="内容">入店待ち、海鮮ランチ、会計。予約不可なので約1時間5分を確保</td>
             </tr>
             <tr>
-              <td data-label="時間"><strong>13:27〜13:47</strong></td>
+              <td data-label="時間"><strong>13:27〜13:47 <span class="duration">（20分）</span></strong></td>
               <td data-label="区分"><span class="type type-move">🚕 移動</span></td>
               <td data-label="場所・移動"><a href="./details/maruwa-shokudo/">まるわ食堂</a><span class="arrow">→</span><a href="./details/morito-shrine/">森戸神社</a></td>
               <td data-label="内容">バスでは遠回りになるためタクシー</td>
             </tr>
-            <tr>
-              <td data-label="時間"><strong>13:47〜14:07</strong></td>
+            <tr class="spot-row" id="spot-morito-shrine">
+              <td data-label="時間"><strong>13:47〜14:07 <span class="duration">（20分）</span></strong></td>
               <td data-label="区分"><span class="type type-outdoor">⛩️ 屋外</span></td>
               <td data-label="場所・移動"><a href="./details/morito-shrine/">森戸神社</a></td>
               <td data-label="内容">参拝、海の鳥居、景色、写真撮影。<b>屋外20分</b></td>
             </tr>
             <tr>
-              <td data-label="時間">14:07〜14:15</td>
+              <td data-label="時間">14:07〜14:15 <span class="duration">（8分）</span></td>
               <td data-label="区分"><span class="type type-walk">🚶 移動</span></td>
               <td data-label="場所・移動"><a href="./details/morito-shrine/">森戸神社</a><span class="arrow">→</span><a href="./details/soso-hayama/">楚々 葉山</a></td>
               <td data-label="内容">約8分。神社からの連続屋外は<b>合計28分</b></td>
             </tr>
-            <tr class="highlight-row">
-              <td data-label="時間"><strong>14:15〜15:15</strong></td>
+            <tr class="highlight-row spot-row" id="spot-soso">
+              <td data-label="時間"><strong>14:15〜15:15 <span class="duration">（60分）</span></strong></td>
               <td data-label="区分"><span class="type type-rest">☕ 屋内</span></td>
               <td data-label="場所・移動"><a href="./details/soso-hayama/">楚々 葉山</a></td>
               <td data-label="内容">コーヒーを飲み、家具・雑貨を見ながら1時間休憩。基本は飲み物中心</td>
             </tr>
             <tr>
-              <td data-label="時間">15:15〜15:20</td>
+              <td data-label="時間">15:15〜15:20 <span class="duration">（5分）</span></td>
               <td data-label="区分"><span class="type type-walk">🚶 移動</span></td>
               <td data-label="場所・移動"><a href="./details/soso-hayama/">楚々 葉山</a><span class="arrow">→</span><a href="./details/morito-beach/">森戸海岸</a></td>
               <td data-label="内容">約5分</td>
             </tr>
-            <tr>
-              <td data-label="時間"><strong>15:20〜15:40</strong></td>
+            <tr class="spot-row" id="spot-morito-beach">
+              <td data-label="時間"><strong>15:20〜15:40 <span class="duration">（20分）</span></strong></td>
               <td data-label="区分"><span class="type type-outdoor">🌊 屋外</span></td>
               <td data-label="場所・移動"><a href="./details/morito-beach/">森戸海岸</a></td>
               <td data-label="内容">海辺を散歩し、景色と写真を楽しむ。<b>屋外20分</b></td>
             </tr>
             <tr>
-              <td data-label="時間">15:40〜15:45</td>
+              <td data-label="時間">15:40〜15:45 <span class="duration">（5分）</span></td>
               <td data-label="区分"><span class="type type-walk">🚶 移動</span></td>
               <td data-label="場所・移動"><a href="./details/morito-beach/">森戸海岸</a><span class="arrow">→</span><a href="./details/motomachi-union/">もとまちユニオン葉山店</a></td>
               <td data-label="内容">約5分。連続屋外は<b>合計30分</b></td>
             </tr>
-            <tr class="highlight-row">
-              <td data-label="時間"><strong>15:45〜16:00</strong></td>
+            <tr class="highlight-row spot-row" id="spot-motomachi-union">
+              <td data-label="時間"><strong>15:45〜16:00 <span class="duration">（15分）</span></strong></td>
               <td data-label="区分"><span class="type type-rest">🛒 屋内</span></td>
               <td data-label="場所・移動"><a href="./details/motomachi-union/">もとまちユニオン葉山店</a></td>
               <td data-label="内容">冷房休憩。水・氷・塩分補給品を購入し、店内でタクシーを手配</td>
             </tr>
             <tr>
-              <td data-label="時間"><strong>16:00〜16:20</strong></td>
+              <td data-label="時間"><strong>16:00〜16:20 <span class="duration">（20分）</span></strong></td>
               <td data-label="区分"><span class="type type-move">🚕 移動</span></td>
               <td data-label="場所・移動"><a href="./details/motomachi-union/">もとまちユニオン</a><span class="arrow">→</span><a href="./details/zushi-marina/">逗子マリーナ</a></td>
               <td data-label="内容">バスは乗換で大幅に遅くなるためタクシー</td>
             </tr>
-            <tr>
-              <td data-label="時間"><strong>16:20〜16:45</strong></td>
+            <tr class="spot-row" id="spot-zushi-marina">
+              <td data-label="時間"><strong>16:20〜16:45 <span class="duration">（25分）</span></strong></td>
               <td data-label="区分"><span class="type type-outdoor">📸 屋外</span></td>
               <td data-label="場所・移動"><a href="./details/zushi-marina/">逗子マリーナ前半</a></td>
               <td data-label="内容">ヤシの木並木、海、ヨットを見て写真撮影。<b>屋外25分</b></td>
             </tr>
-            <tr class="highlight-row">
-              <td data-label="時間"><strong>16:45〜17:10</strong></td>
+            <tr class="highlight-row spot-row" id="spot-ron-herman">
+              <td data-label="時間"><strong>16:45〜17:10 <span class="duration">（25分）</span></strong></td>
               <td data-label="区分"><span class="type type-rest">🛍️ 屋内</span></td>
               <td data-label="場所・移動"><a href="./details/ron-herman/">ロンハーマン逗子マリーナ店</a></td>
               <td data-label="内容">店内の商品を見ながら25分涼む</td>
             </tr>
-            <tr>
-              <td data-label="時間"><strong>17:10〜17:35</strong></td>
+            <tr class="spot-row" id="spot-kotsubo">
+              <td data-label="時間"><strong>17:10〜17:35 <span class="duration">（25分）</span></strong></td>
               <td data-label="区分"><span class="type type-outdoor">⚓ 屋外</span></td>
               <td data-label="場所・移動"><a href="./details/zushi-marina/">逗子マリーナ後半</a>・<a href="./details/kotsubo-fishing-port/">小坪漁港</a></td>
               <td data-label="内容">港周辺を散歩し、海と漁港の写真撮影。<b>屋外25分</b></td>
             </tr>
             <tr>
-              <td data-label="時間">17:35〜17:45</td>
+              <td data-label="時間">17:35〜17:45 <span class="duration">（10分）</span></td>
               <td data-label="区分"><span class="type type-rest">🛍️ 屋内</span></td>
               <td data-label="場所・移動"><a href="./details/ron-herman/">ロンハーマン周辺</a></td>
               <td data-label="内容">店内に戻って休憩。タクシーが来るまで涼しい場所で待つ</td>
             </tr>
             <tr>
-              <td data-label="時間"><strong>17:45〜18:05</strong></td>
+              <td data-label="時間"><strong>17:45〜18:05 <span class="duration">（20分）</span></strong></td>
               <td data-label="区分"><span class="type type-move">🚕 移動</span></td>
               <td data-label="場所・移動"><a href="./details/zushi-marina/">逗子マリーナ</a><span class="arrow">→</span><a href="./details/cremahop/">CREMAHOP</a></td>
               <td data-label="内容">バス待ちを避け、タクシーで逗子駅周辺へ</td>
             </tr>
-            <tr class="highlight-row">
-              <td data-label="時間"><strong>18:05〜18:45</strong></td>
+            <tr class="highlight-row spot-row" id="spot-cremahop">
+              <td data-label="時間"><strong>18:05〜18:45 <span class="duration">（40分）</span></strong></td>
               <td data-label="区分"><span class="type type-rest">🍨 屋内</span></td>
               <td data-label="場所・移動"><a href="./details/cremahop/">CREMAHOP</a></td>
               <td data-label="内容">ジェラートを選び、店内で40分休憩。ランチから約5時間後の食べやすい時間</td>
             </tr>
             <tr>
-              <td data-label="時間">18:45〜18:50</td>
+              <td data-label="時間">18:45〜18:50 <span class="duration">（5分）</span></td>
               <td data-label="区分"><span class="type type-walk">🚶 移動</span></td>
               <td data-label="場所・移動"><a href="./details/cremahop/">CREMAHOP</a><span class="arrow">→</span><a href="./details/zushi-station/">逗子駅</a></td>
               <td data-label="内容">徒歩約5分</td>
             </tr>
             <tr>
-              <td data-label="時間"><strong>19:00前後〜20:25前後</strong></td>
+              <td data-label="時間"><strong>19:00前後〜20:25前後 <span class="duration">（約85分）</span></strong></td>
               <td data-label="区分"><span class="type type-move">🚃 移動</span></td>
               <td data-label="場所・移動"><a href="./details/zushi-station/">逗子駅</a><span class="arrow">→</span><a href="./details/sugamo-station/">巣鴨駅</a></td>
               <td data-label="内容">JRで帰宅。実際に乗れる電車に合わせる</td>
             </tr>
             <tr>
-              <td data-label="時間"><strong>20:25〜20:40ごろ</strong></td>
+              <td data-label="時間"><strong>20:25〜20:40ごろ <span class="duration">（約15分）</span></strong></td>
               <td data-label="区分"><span class="type type-move">🏠 移動</span></td>
               <td data-label="場所・移動"><a href="./details/sugamo-station/">巣鴨駅</a><span class="arrow">→</span>自宅</td>
               <td data-label="内容">駅から自宅まで15分として計算</td>
             </tr>
             <tr class="buffer-row">
-              <td data-label="時間"><strong>20:40〜21:00</strong></td>
+              <td data-label="時間"><strong>20:40〜21:00 <span class="duration">（20分）</span></strong></td>
               <td data-label="区分"><span class="type type-buffer">✅ 予備</span></td>
               <td data-label="場所・移動">遅延・混雑用</td>
               <td data-label="内容">電車やタクシーに約20分の遅れがあっても、21時帰宅を守れる</td>
@@ -209,6 +230,7 @@
     <footer>
       <p>暑さや混雑に合わせて、無理せず予定を短縮してください。</p>
     </footer>
+    <a class="back-to-index" href="#place-index" aria-label="立ち寄り先一覧へ戻る">一覧へ <span aria-hidden="true">↑</span></a>
   </main>
 
   <script src="./auth.js"></script>

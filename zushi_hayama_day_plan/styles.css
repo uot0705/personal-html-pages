@@ -204,27 +204,18 @@ a:hover {
   font-size: clamp(1rem, 2vw, 1.16rem);
 }
 
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 28px;
-}
-
-.hero-meta span {
-  padding: 8px 12px;
-  border: 1px solid rgba(20, 125, 120, 0.18);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.62);
-  color: var(--sea-dark);
-  font-size: 0.82rem;
-  font-weight: 750;
-  backdrop-filter: blur(10px);
-}
-
+.place-index-section,
 .schedule-section {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
+}
+
+.place-index-section {
+  padding: 54px 0 0;
+  scroll-margin-top: 16px;
+}
+
+.schedule-section {
   padding: 64px 0 80px;
 }
 
@@ -249,7 +240,8 @@ a:hover {
   font-size: 0.9rem;
 }
 
-.table-wrap {
+.table-wrap,
+.place-index-wrap {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -279,16 +271,40 @@ th {
   letter-spacing: 0.08em;
 }
 
-th:nth-child(1) {
+.schedule-table th:nth-child(1) {
   width: 19%;
 }
 
-th:nth-child(2) {
+.schedule-table th:nth-child(2) {
   width: 12%;
 }
 
-th:nth-child(3) {
+.schedule-table th:nth-child(3) {
   width: 28%;
+}
+
+.place-index-table th:first-child {
+  width: 88px;
+}
+
+.place-index-table th:nth-child(2) {
+  width: 120px;
+}
+
+.place-index-table td:first-child {
+  color: #8aa09c;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.place-index-table td:nth-child(2) {
+  font-weight: 750;
+}
+
+.place-index-table a {
+  display: inline-block;
+  padding-block: 2px;
 }
 
 tbody tr:last-child td {
@@ -305,6 +321,22 @@ tbody tr:hover {
 
 .buffer-row {
   background: #edf8f5;
+}
+
+.duration {
+  color: var(--muted);
+  font-size: 0.78em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.spot-row {
+  scroll-margin-top: 18px;
+}
+
+.spot-row:target {
+  background: #e7f6f2;
+  box-shadow: inset 4px 0 0 var(--sea);
 }
 
 .arrow {
@@ -355,6 +387,10 @@ footer {
 
 footer p {
   margin: 0;
+}
+
+.back-to-index {
+  display: none;
 }
 
 .detail-main {
@@ -429,8 +465,16 @@ footer p {
     margin-top: 22px;
   }
 
+  .place-index-section,
   .schedule-section {
     width: min(100% - 24px, 600px);
+  }
+
+  .place-index-section {
+    padding-top: 40px;
+  }
+
+  .schedule-section {
     padding: 44px 0 60px;
   }
 
@@ -450,15 +494,15 @@ footer p {
     box-shadow: none;
   }
 
-  table,
-  tbody,
-  tr,
-  td {
+  .schedule-table,
+  .schedule-table tbody,
+  .schedule-table tr,
+  .schedule-table td {
     display: block;
     width: 100%;
   }
 
-  thead {
+  .schedule-table thead {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -468,12 +512,12 @@ footer p {
     white-space: nowrap;
   }
 
-  tbody {
+  .schedule-table tbody {
     display: grid;
     gap: 12px;
   }
 
-  tbody tr {
+  .schedule-table tbody tr {
     padding: 16px;
     border: 1px solid var(--line);
     border-radius: 18px;
@@ -481,28 +525,28 @@ footer p {
     box-shadow: 0 8px 24px rgba(22, 69, 65, 0.07);
   }
 
-  tbody tr:hover {
+  .schedule-table tbody tr:hover {
     background: var(--card);
   }
 
-  tbody tr.highlight-row {
+  .schedule-table tbody tr.highlight-row {
     border-color: #eadbbd;
     background: #fffdf8;
   }
 
-  tbody tr.buffer-row {
+  .schedule-table tbody tr.buffer-row {
     border-color: #c8e5df;
     background: #edf8f5;
   }
 
-  td {
+  .schedule-table td {
     position: relative;
     min-height: 30px;
     padding: 8px 0 8px 92px;
     border: 0;
   }
 
-  td::before {
+  .schedule-table td::before {
     position: absolute;
     left: 0;
     top: 9px;
@@ -514,12 +558,58 @@ footer p {
     letter-spacing: 0.04em;
   }
 
-  td[data-label="場所・移動"] {
+  .schedule-table td[data-label="場所・移動"] {
     font-size: 1.02rem;
+  }
+
+  .place-index-wrap {
+    border-radius: 18px;
+  }
+
+  .place-index-table {
+    table-layout: auto;
+  }
+
+  .place-index-table th,
+  .place-index-table td {
+    padding: 12px 10px;
+  }
+
+  .place-index-table th:first-child {
+    width: 52px;
+  }
+
+  .place-index-table th:nth-child(2) {
+    width: 72px;
+  }
+
+  .place-index-table td:last-child {
+    line-height: 1.45;
   }
 
   .type {
     transform: translateY(-1px);
+  }
+
+  .back-to-index {
+    position: fixed;
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    z-index: 20;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 17px;
+    border: 1px solid rgba(255, 255, 255, 0.62);
+    border-radius: 999px;
+    background: rgba(15, 95, 91, 0.94);
+    box-shadow: 0 10px 28px rgba(15, 69, 66, 0.28);
+    color: #fff;
+    font-size: 0.84rem;
+    font-weight: 800;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
   }
 }
 
@@ -533,19 +623,11 @@ footer p {
     border-radius: 24px;
   }
 
-  .hero-meta {
-    display: grid;
-  }
-
-  .hero-meta span {
-    width: fit-content;
-  }
-
-  td {
+  .schedule-table td {
     padding-left: 82px;
   }
 
-  td::before {
+  .schedule-table td::before {
     width: 70px;
   }
 
