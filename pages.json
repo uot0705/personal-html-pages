@@ -4,5 +4,11 @@
     "description": "",
     "path": "./taiwan_2n3d_plan/",
     "createdAt": "2026-06-21"
+  },
+  {
+    "title": "逗子・葉山 日帰り予定表",
+    "description": "暑さを避けながら巡る、逗子・葉山の日帰り予定表",
+    "path": "./zushi_hayama_day_plan/",
+    "createdAt": "2026-07-24"
   }
 ]
