@@ -419,6 +419,34 @@ footer p {
   line-height: 1.08;
 }
 
+.detail-photo {
+  margin: 0 0 26px;
+}
+
+.detail-photo img {
+  width: 100%;
+  height: clamp(230px, 48vw, 340px);
+  display: block;
+  border-radius: 18px;
+  background: var(--sea-soft);
+  object-fit: cover;
+}
+
+.detail-photo figcaption {
+  margin-top: 8px;
+  color: #81918f;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.detail-photo figcaption a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
 .detail-links {
   display: grid;
   gap: 12px;
